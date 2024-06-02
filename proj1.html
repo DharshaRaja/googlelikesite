@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+        <title> Google search webpage Design</title>
+        <link rel = "stylesheet" href = "style.css">
+
+    </head>
+    <body>
+        <section>
+            <header>
+                <u1>
+                    <li><a href = "#">Gmail</a></li>
+                    <li><a href = "#">Images </a></li>
+                    <li><a href = "#"><img src = "bars.png"></a></li>
+                    <li><button>Sign In</button></li>
+                    <li><button1 class="dark-mode" onclick="toggleDarkMode()">Dark Mode</button1></li>
+                </u1>
+            </header>
+          
+            <div class = "main">
+                <img src = google_2015_logo.svg>
+                <div class = "searchBox">
+                    <form action="https://www.google.com/search" method="get" onsubmit="saveSearch()">
+                        <input type = "text" name ="q"class = "search" id="search-input">
+                        <br>
+                        <input type="submit" value="Search" class="buttonss">
+                    </form>
+                    <div class = "icons">
+                        <div><img src = "search.png"></div>
+                        <div><img src = "mic.png"></div>
+                        
+                    </div>
+                </div>
+            
+                
+            </div>
+            <div class = "footer">
+                <div class = "row row2">
+                    <p class = "country"> India</p>
+                </div>
+                <div class = "row row2">
+                    <u1>
+                        <li><a href = "#"> Advertising</a> </li>
+                        <li><a href = "#">Business </a> </li>
+                        <li><a href = "#"> About</a> </li>
+                        <li><a href = "#"> How Search works</a> </li>
+                    </u1>
+                    <u1>
+                        <li><a href = "#">Privacy</a> </li>
+                        <li><a href = "#">Terms</a> </li>
+                        <li><a href = "#">settings</a> </li>
+                    </u1>
+
+                </div>
+            </div>
+        
+        </section>
+        <script>
+            function toggleDarkMode() {
+                document.body.classList.toggle('dark');
+            }
+    
+            function saveSearch() {
+                const query = document.getElementById('search-input').value;
+                if (query) {
+                    let searches = localStorage.getItem('searchHistory');
+                    if (searches) {
+                        searches = JSON.parse(searches);
+                    } else {
+                        searches = [];
+                    }
+                    searches.push(query);
+                    localStorage.setItem('searchHistory', JSON.stringify(searches));
+                                    }
+            }
+            </script>
+    </body>
+</html>
